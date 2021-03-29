@@ -22,6 +22,7 @@ const getFruitList = async (_req, res) => {
   try {
     const fruitList = await findFruitList();
     res.writeHead(200, { "Content-Type": "application/json" });
+    return res.end(JSON.stringify({ fruitList }));
   } catch (error) {
     console.log(error.message);
   }
@@ -87,8 +88,8 @@ const putFruit = async (req, res, id) => {
     const body = await getReqBody(req);
     const parsedBody = JSON.parse(body);
     const fruitToUpdate = {
-      name: parsedBody.name ?? fruit.name,
-      price: parsedBody.price ?? fruit.price,
+      name: parsedBody.name ? parsedBody.name : fruit.name,
+      price: parsedBody.price ? parsedBody.price : fruit.price,
     };
 
     const updatedFruit = await updateFruit(id, fruitToUpdate);
