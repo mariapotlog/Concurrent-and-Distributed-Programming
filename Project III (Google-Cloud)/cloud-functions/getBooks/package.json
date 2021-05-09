@@ -1,0 +1,14 @@
+{
+  "name": "get-books",
+  "description": "google-cloud-project getBooks cloud function",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Maria Potlog",
+  "engines": {
+    "node": ">= 12.20.0"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "^6.4.0"
+  }
+}
